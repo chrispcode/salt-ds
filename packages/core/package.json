@@ -29,6 +29,7 @@
     "provenance": true
   },
   "scripts": {
+    "build": "rslib build",
     "bundle:css": "yarn node ./scripts/build.mjs"
   },
   "files": [

@@ -59,6 +59,8 @@
     "@fontsource/open-sans": "^4.5.13",
     "@fontsource/pt-mono": "^5.0.12",
     "@mswjs/data": "^0.16.1",
+    "@rsbuild/plugin-react": "^1.0.2",
+    "@rslib/core": "^0.0.7",
     "@storybook/addon-a11y": "^8.3.0",
     "@storybook/addon-actions": "^8.3.0",
     "@storybook/addon-docs": "^8.3.0",
@@ -131,13 +133,11 @@
   },
   "browserslist": {
     "production": [
-      "chrome 79",
       ">0.2%",
       "not dead",
       "not op_mini all"
     ],
     "development": [
-      "chrome 79",
       "last 1 chrome version",
       "last 1 firefox version",
       "last 1 safari version"
