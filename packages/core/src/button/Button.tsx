@@ -1,11 +1,7 @@
 import { useComponentCssInjection } from "@salt-ds/styles";
 import { useWindow } from "@salt-ds/window";
 import { clsx } from "clsx";
-import {
-  type ComponentPropsWithoutRef,
-  type ReactElement,
-  forwardRef,
-} from "react";
+import { type ComponentPropsWithoutRef, forwardRef } from "react";
 import { makePrefixer } from "../utils";
 
 import buttonCss from "./Button.css";
@@ -66,6 +62,10 @@ export interface ButtonProps extends ComponentPropsWithoutRef<"button"> {
    * @since 1.36.0.
    */
   sentiment?: ButtonSentiment;
+  /**
+   * If `true`, the button will be in a loading state. This allows a spinner to be nested inside the button.
+   */
+  loading?: boolean;
 }
 
 function variantToAppearanceAndColor(
@@ -84,22 +84,23 @@ function variantToAppearanceAndColor(
 export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
   function Button(
     {
+      appearance: appearanceProp,
       children,
       className,
       disabled,
       focusableWhenDisabled,
+      loading,
       onKeyUp,
       onKeyDown,
       onBlur,
       onClick,
-      appearance: appearanceProp,
       sentiment: sentimentProp,
       type = "button",
       variant = "primary",
       ...restProps
     },
-    ref?,
-  ): ReactElement<ButtonProps> {
+    ref,
+  ) {
     const { active, buttonProps } = useButton({
       disabled,
       focusableWhenDisabled,
@@ -107,6 +108,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
       onKeyDown,
       onBlur,
       onClick,
+      loading,
     });
 
     const targetWindow = useWindow();
@@ -133,6 +135,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
           withBaseName(variant),
           {
             [withBaseName("disabled")]: disabled,
+            [withBaseName("loading")]: loading,
             [withBaseName("active")]: active,
             [withBaseName(appearance)]: appearance,
             [withBaseName(sentiment)]: sentiment,

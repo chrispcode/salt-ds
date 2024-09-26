@@ -35,6 +35,7 @@ export const useButton = <T extends Element>({
   onKeyDown,
   onClick,
   onBlur,
+  loading,
 }: ButtonHookProps<T>): ButtonHookResult<T> => {
   const [keyIsDown, setkeyIsDown] = useState("");
   const [active, setActive] = useState(false);
@@ -64,6 +65,9 @@ export const useButton = <T extends Element>({
 
   const handleClick = (event: MouseEvent<T>) => {
     setActive(true);
+    if (loading) {
+      event.preventDefault();
+    }
     onClick?.(event);
   };
 

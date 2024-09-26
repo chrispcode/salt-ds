@@ -66,6 +66,21 @@ Use an icon-only button without text when screen space is limited, and the icon 
 
 </LivePreview>
 
+<LivePreview componentName="button" exampleName="Loading" >
+
+## Loading
+
+Buttons can show that a short action is being performed by passing `loading={true}`.    
+
+### Best practices
+
+- Use loading buttons for actions that take a short amount of time to complete, such as submitting a form, fetching data from a server or a quick processing action (generating a report or performing a calculation).
+- The [Content Status](salt/patterns/content-status) pattern can be used with a loading button to provide additional feedback to the user.
+- Don't use loading buttons if an action is instantaneous or very quick. For further guidance, view the [Salt duration foundation](/salt/foundations/duration).
+- Don't use loading buttons if the action is complex and will take a significant amount of time (more than a few seconds) e.g. uploading or downloading large files, installing software, or completing a multi-step process. Use a [Progress Bar](/salt/components/progress) or a [Toast](/salt/components/toast) instead.
+
+</LivePreview>
+
 <LivePreview componentName="button" exampleName="Disabled" >
 
 ## Disabled

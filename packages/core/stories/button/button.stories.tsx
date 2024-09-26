@@ -1,17 +1,14 @@
-import {
-  Button,
-  type ButtonProps,
-  FlexLayout,
-  FlowLayout,
-  StackLayout,
-} from "@salt-ds/core";
+import { Button, FlexLayout, FlowLayout, StackLayout } from "@salt-ds/core";
 import {
   DownloadIcon,
+  RefreshIcon,
   SearchIcon,
   SendIcon,
   SettingsSolidIcon,
+  SyncIcon,
 } from "@salt-ds/icons";
 import type { Meta, StoryFn } from "@storybook/react";
+import { useState } from "react";
 
 export default {
   title: "Core/Button",
@@ -172,6 +169,95 @@ export const WithIcon: StoryFn<typeof Button> = () => {
         <DownloadIcon aria-hidden />
       </Button>
     </FlexLayout>
+  );
+};
+
+function useLoadOnClick() {
+  const [loading, setLoading] = useState(false);
+
+  const handleClick = () => {
+    if (!loading) {
+      setLoading(true);
+      setTimeout(() => {
+        setLoading(false);
+      }, 3000);
+    }
+  };
+
+  return [loading, handleClick] as const;
+}
+
+export const Loading: StoryFn = () => {
+  const [accentSolidLoading, setAccentSolidLoading] = useLoadOnClick();
+  const [accentOutlineLoading, setAccentOutlineLoading] = useLoadOnClick();
+  const [accentTransparentLoading, setAccentTransparentLoading] =
+    useLoadOnClick();
+  const [neutralSolidLoading, setNeutralSolidLoading] = useLoadOnClick();
+  const [neutralOutlineLoading, setNeutralOutlineLoading] = useLoadOnClick();
+  const [neutralTransparentLoading, setNeutralTransparentLoading] =
+    useLoadOnClick();
+
+  return (
+    <StackLayout gap={3}>
+      <FlowLayout>
+        <Button
+          sentiment="accented"
+          appearance="solid"
+          loading={accentSolidLoading}
+          onClick={setAccentSolidLoading}
+        >
+          <SendIcon aria-hidden />
+          Send Email
+        </Button>
+        <Button
+          sentiment="accented"
+          appearance="bordered"
+          loading={accentOutlineLoading}
+          onClick={setAccentOutlineLoading}
+        >
+          <SyncIcon aria-hidden />
+          Sync Files
+        </Button>
+        <Button
+          sentiment="accented"
+          appearance="transparent"
+          loading={accentTransparentLoading}
+          onClick={setAccentTransparentLoading}
+        >
+          <RefreshIcon aria-hidden />
+          Refresh Page
+        </Button>
+      </FlowLayout>
+      <FlowLayout>
+        <Button
+          sentiment="neutral"
+          appearance="solid"
+          loading={neutralSolidLoading}
+          onClick={setNeutralSolidLoading}
+        >
+          <SendIcon aria-hidden />
+          Send Email
+        </Button>
+        <Button
+          sentiment="neutral"
+          appearance="bordered"
+          loading={neutralOutlineLoading}
+          onClick={setNeutralOutlineLoading}
+        >
+          <SyncIcon aria-hidden />
+          Sync Files
+        </Button>
+        <Button
+          sentiment="neutral"
+          appearance="transparent"
+          loading={neutralTransparentLoading}
+          onClick={setNeutralTransparentLoading}
+        >
+          <RefreshIcon aria-hidden />
+          Refresh Page
+        </Button>
+      </FlowLayout>
+    </StackLayout>
   );
 };
 

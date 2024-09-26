@@ -7,7 +7,7 @@
   border-width: var(--saltButton-borderWidth, var(--salt-size-border, 0));
   border-radius: var(--saltButton-borderRadius, var(--salt-palette-corner-weak, 0));
   color: var(--saltButton-text-color, var(--button-text-color));
-  cursor: var(--saltButton-cursor, pointer);
+  cursor: var(--saltButton-cursor, var(--salt-actionable-cursor-hover));
   display: inline-flex;
   gap: var(--salt-spacing-50);
   justify-content: var(--saltButton-justifyContent, center);
@@ -101,7 +101,8 @@
   --button-borderColor-disabled: var(--salt-actionable-accented-bold-borderColor-disabled);
 }
 
-.saltButton-accented.saltButton-bordered {
+.saltButton-accented.saltButton-bordered,
+.saltButton-accented.saltButton-loading {
   --button-text-color: var(--salt-actionable-accented-foreground);
   --button-text-color-hover: var(--salt-actionable-accented-foreground-hover);
   --button-text-color-active: var(--salt-actionable-accented-foreground-active);
@@ -146,7 +147,8 @@
   --button-borderColor-disabled: var(--salt-actionable-bold-borderColor-disabled);
 }
 
-.saltButton-neutral.saltButton-bordered {
+.saltButton-neutral.saltButton-bordered,
+.saltButton-neutral.saltButton-loading {
   --button-text-color: var(--salt-actionable-foreground);
   --button-text-color-hover: var(--salt-actionable-foreground-hover);
   --button-text-color-active: var(--salt-actionable-foreground-active);
@@ -191,7 +193,8 @@
   --button-borderColor-disabled: var(--salt-actionable-negative-bold-borderColor-disabled);
 }
 
-.saltButton-negative.saltButton-bordered {
+.saltButton-negative.saltButton-bordered,
+.saltButton-negative.saltButton-loading {
   --button-text-color: var(--salt-actionable-negative-foreground);
   --button-text-color-hover: var(--salt-actionable-negative-foreground-hover);
   --button-text-color-active: var(--salt-actionable-negative-foreground-active);
@@ -236,7 +239,8 @@
   --button-borderColor-disabled: var(--salt-actionable-positive-bold-borderColor-disabled);
 }
 
-.saltButton-positive.saltButton-bordered {
+.saltButton-positive.saltButton-bordered,
+.saltButton-positive.saltButton-loading {
   --button-text-color: var(--salt-actionable-positive-foreground);
   --button-text-color-hover: var(--salt-actionable-positive-foreground-hover);
   --button-text-color-active: var(--salt-actionable-positive-foreground-active);
@@ -281,7 +285,8 @@
   --button-borderColor-disabled: var(--salt-actionable-caution-bold-borderColor-disabled);
 }
 
-.saltButton-caution.saltButton-bordered {
+.saltButton-caution.saltButton-bordered,
+.saltButton-caution.saltButton-loading {
   --button-text-color: var(--salt-actionable-caution-foreground);
   --button-text-color-hover: var(--salt-actionable-caution-foreground-hover);
   --button-text-color-active: var(--salt-actionable-caution-foreground-active);
