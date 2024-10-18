@@ -1,8 +1,9 @@
 import { useDensity, useTheme } from "@salt-ds/core";
 import type { GridApi, GridReadyEvent } from "ag-grid-community";
-import { LicenseManager } from "ag-grid-enterprise";
 import type { AgGridReactProps } from "ag-grid-react";
 import { type HTMLAttributes, useMemo, useRef, useState } from "react";
+// Import enterprise to showcase theme, make sure to buy your enterprise license
+import "ag-grid-enterprise";
 
 // Helps to set className, rowHeight and headerHeight depending on the current density
 export function useAgGridHelpers(compact = false): {
