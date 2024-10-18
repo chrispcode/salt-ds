@@ -391,6 +391,30 @@ EditableCellSelectEditing.play = async ({ canvasElement }) => {
   }
 };
 
+export const EditableCellRichSelectEditing: StoryObj<
+  typeof AgGridReact
+> = () => {
+  return <ProvidedCellEditors />;
+};
+EditableCellRichSelectEditing.play = async ({ canvasElement }) => {
+  const canvas = within(canvasElement);
+
+  // Wait until the grid fully loaded
+  await sleep(200);
+
+  // Do findAll here so this will also work in `side-by-side` mode
+  const textEditorCells = await canvas.findAllByText("Black");
+
+  for (const cell of textEditorCells) {
+    await userEvent.dblClick(cell);
+
+    await expect(cell).toHaveClass("ag-cell-inline-editing", "editable-cell");
+    await expect(await canvas.findByRole("listbox")).toHaveClass(
+      "ag-rich-select-virtual-list-container",
+    );
+  }
+};
+
 export const ContextMenu: StoryObj<typeof AgGridReact> = () => {
   return <ContextMenuGrid />;
 };
@@ -409,11 +433,6 @@ ContextMenu.play = async ({ canvasElement }) => {
     ).toBeInTheDocument();
   }
 };
-
-// Function to emulate pausing between interactions
-function sleep(ms: number) {
-  return new Promise((resolve) => setTimeout(resolve, ms));
-}
 
 export const FloatingFilterFocus: StoryObj<typeof AgGridReact> = () => {
   return <CustomFilter />;

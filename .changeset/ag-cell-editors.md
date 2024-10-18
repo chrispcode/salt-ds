@@ -5,5 +5,6 @@
 - Added theme support for several built-in ag grid provided editors
   - `agLargeTextCellEditor`
   - `agSelectCellEditor`
+  - `agRichSelectCellEditor`
 - Fixed `input` padding within `.editable-cell` during editing
 - Fixed long text overflow within `.editable-cell` when focused

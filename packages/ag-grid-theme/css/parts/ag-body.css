@@ -113,12 +113,14 @@ div[class*="ag-theme-salt"] .editable-cell .ag-picker-field-wrapper {
   border: none;
 }
 
-div[class*="ag-theme-salt"] .ag-ltr .editable-cell .ag-select .ag-picker-field-wrapper {
+div[class*="ag-theme-salt"] .ag-ltr .editable-cell .ag-select .ag-picker-field-wrapper,
+div[class*="ag-theme-salt"] .ag-ltr .editable-cell .ag-rich-select .ag-picker-field-wrapper {
   padding: 0 var(--salt-spacing-100);
   border-radius: 0;
 }
 
-div[class*="ag-theme-salt"] .ag-ltr .editable-cell .ag-select .ag-icon-small-down::before {
+div[class*="ag-theme-salt"] .ag-ltr .editable-cell .ag-select .ag-icon-small-down::before,
+div[class*="ag-theme-salt"] .ag-ltr .editable-cell .ag-rich-select .ag-icon-small-down::before {
   /* Change the icon to be aligned with Salt chevron instead of triangle */
   /* We are not using different icons between collpase / expand, given only collapsed icon is available in ag salt icon font (.ag-picker-collapsed vs .ag-picker-expanded) */
   content: var(--ag-icon-font-code-contracted);
