@@ -109,6 +109,12 @@ div[class*="ag-theme-salt"] .ag-chart-menu-icon:hover {
   --ag-icon-font-color-filter: var(--salt-actionable-subtle-foreground-hover);
 }
 
+/* Make filter and menu icon apart, to accomodate hover effects above */
+.ag-ltr .ag-header-cell:not(.ag-right-aligned-header) .ag-header-label-icon,
+.ag-ltr .ag-header-cell:not(.ag-right-aligned-header) .ag-header-menu-icon {
+  margin-left: var(--salt-spacing-100);
+}
+
 /* When filter is active, use toggle button active styles */
 div[class*="ag-theme-salt"] .ag-filter-active {
   /* Button is the same size of icon, we're copying what ag quartz theme is doing */

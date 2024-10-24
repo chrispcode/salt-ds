@@ -47,7 +47,8 @@ const Default = ({
         rowData={dataGridExampleData}
         rowSelection="single"
         statusBar={statusBar}
-        enableRangeSelection={true}
+        cellSelection={true}
+        suppressMenuHide={false}
       />
     </div>
   );
