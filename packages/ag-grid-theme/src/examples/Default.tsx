@@ -48,7 +48,6 @@ const Default = ({
         rowSelection="single"
         statusBar={statusBar}
         cellSelection={true}
-        suppressMenuHide={false}
       />
     </div>
   );

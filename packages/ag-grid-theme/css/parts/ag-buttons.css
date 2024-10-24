@@ -43,7 +43,7 @@ div[class*="ag-theme-salt"] input[class^="ag-"][type="button"]:focus {
 }
 
 div[class*="ag-theme-salt"] .ag-select .ag-picker-field-wrapper {
-  border: var(--salt-size-border) var(--salt-separable-borderStyle) var(--salt-container-primary-borderColor);
+  border: var(--salt-size-border) var(--salt-separable-borderStyle) var(--salt-editable-borderColor);
   border-radius: 0;
 }
 

@@ -10,6 +10,7 @@ export const defaultColumns: ColDef[] = [
     headerCheckboxSelection: true,
     pinned: "left",
     suppressHeaderMenuButton: true,
+    suppressHeaderFilterButton: true,
     resizable: false,
     suppressColumnsToolPanel: true,
     filter: false,
