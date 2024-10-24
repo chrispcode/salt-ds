@@ -4,6 +4,8 @@ import { LicenseManager } from "ag-grid-enterprise";
 import type { AgGridReactProps } from "ag-grid-react";
 import { type HTMLAttributes, useMemo, useRef, useState } from "react";
 
+LicenseManager.setLicenseKey("your license key");
+
 // Helps to set className, rowHeight and headerHeight depending on the current density
 export function useAgGridHelpers(compact = false): {
   containerProps: HTMLAttributes<HTMLDivElement>;
