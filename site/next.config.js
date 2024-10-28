@@ -1,5 +1,3 @@
-const webpack = require("webpack");
-
 module.exports = {
   eslint: {
     ignoreDuringBuilds: true,
@@ -18,7 +16,7 @@ module.exports = {
     "@jpmorganchase/mosaic-theme",
     "@jpmorganchase/mosaic-store",
   ],
-  rewrites() {
+  async rewrites() {
     return {
       // These rewrites are checked after headers/redirects
       // and before all files including _next/public files which
@@ -44,25 +42,15 @@ module.exports = {
     };
   },
   images: {
-    domains: [
+    remotePatterns: [
       /** Insert the domains where you will load images from */
       /* https://nextjs.org/docs/messages/next-image-unconfigured-host */
     ],
   },
-  webpack(config) {
-    // Swaps out Buble for a smaller version that removes the latest Regex spec features.
-    // See https://github.com/FormidableLabs/react-live#what-bundle-size-can-i-expect
-    config.plugins.push(
-      new webpack.NormalModuleReplacementPlugin(
-        /^buble$/,
-        require.resolve("@philpl/buble"),
-      ),
-    );
+  webpack(config, { isServer }) {
     // Required by MDX-JS
-    if (config.resolve.fallback) {
+    if (!isServer) {
       config.resolve.fallback.fs = false;
-    } else {
-      config.resolve.fallback = { fs: false };
     }
 
     for (const rule of config.module.rules) {
